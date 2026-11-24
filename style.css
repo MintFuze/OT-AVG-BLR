@@ -106,3 +106,11 @@ body.in-quiz .question-actions{background:var(--bg);min-width:0;position:relativ
 @media(prefers-reduced-motion:reduce){.library-topic[open]>.library-questions,.source-scroll[aria-busy="false"]>.source-img{animation:none}}
 
 body.in-quiz .question-body{contain:layout paint}
+
+/* Control shape communicates whether choices are exclusive or independent. */
+input[type=radio],input[type=radio]::after{border-radius:50%!important}
+input[type=radio]:checked{border-color:var(--accent)}
+input[type=checkbox]:checked{border-color:var(--accent);background:var(--accent)}
+input[type=checkbox]:checked::after{width:5px;height:9px;background:transparent;border:solid var(--bg);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.answer.correct input[type=radio]{border-color:#6ac68c}
+.answer.wrong input[type=radio]{border-color:#ed8594}
