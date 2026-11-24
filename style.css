@@ -116,3 +116,5 @@ input[type=checkbox]:checked::after{width:5px;height:9px;background:transparent;
 .answer.wrong input[type=radio]{border-color:#ed8594}
 
 .custom-count-field{padding:0 0 20px;max-width:220px}.custom-count-field label{font-size:13px}.custom-count-field .small{font-size:11px;margin-top:6px}
+
+.history-delete{color:var(--muted);font-size:12px;min-height:38px;padding:8px}.history-delete:hover{color:var(--red)}
