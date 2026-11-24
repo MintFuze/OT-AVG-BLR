@@ -40,3 +40,8 @@ Reference lock: retain the existing user-approved dark square interface and alig
 - State: keep the form DOM and focused control when choices change. Show timer minutes beside its selector; hide inactive fields from focus and validation. Exam displays its fixed duration and error limit.
 - Motion: 160–200ms opacity and grid expansion only for dependent settings; buttons update in place. Reduced motion removes transitions.
 - Tokens: preserve SF system font, dark canvas, blue selected controls, no radius, no shadows; existing brand gradient remains progress-only.
+
+
+## Long-question viewport fix
+The old question grid retained `align-items:start`, so a long question could size its grid item from content and push navigation below the viewport. The quiz now uses a bounded flex column and a stretching `minmax(0,1fr)` grid row. Only the question body scrolls; action buttons stay visible. Long stems receive compact typography; same-question answer renders preserve the scroll offset, new questions reset to the top. The scroll region is keyboard focusable.
+Validation: Safari rendered all 625 available questions at desktop and 390×932, including wrong-answer feedback, last-option reachability and viewport bounds. 390×600 visually checked. All 27 figures and 3147 source image fragments verified and decoded by Safari. Live asset/source-bundle bytes checked against local files.

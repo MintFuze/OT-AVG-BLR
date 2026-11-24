@@ -84,3 +84,15 @@ input:not([type=radio]):not([type=checkbox]):focus{border-color:var(--accent)}
 @media(max-width:800px){.setup-page{padding:28px 18px 32px}.setup-grid{gap:24px}.setup-identity{padding-right:24px}.setup-page .choice-buttons button{font-size:13px;padding:10px 8px}.setup-page .bank-count{font-size:12px}.setup-page .topic-choice{font-size:13px;gap:10px;padding:13px 8px}.setup-bottom>.small{max-width:260px}.setup-page .timer-limit{grid-template-columns:1fr 96px}}
 @media(max-width:600px){.setup-page{padding:24px 14px 32px}.setup-page .page-heading{display:block;margin-bottom:24px}.setup-page .page-heading h1{font-size:25px}.setup-page .bank-count{text-align:left;margin:12px 0 0;font-size:12px}.setup-grid{grid-template-columns:1fr;gap:24px;padding-bottom:24px;margin-bottom:24px}.setup-identity{padding:0;border:0}.setup-page .mode-options>.small{min-height:0;font-size:12px}.setup-page .participant-field{margin-bottom:20px}.setup-parameters>.choice-field{margin-bottom:20px}.time-settings{grid-template-columns:1fr;gap:0}.setup-page .timer-limit{grid-template-columns:1fr 120px}.setup-page .topic-choices{grid-template-columns:1fr;gap:0}.setup-page .topic-choice{font-size:14px;padding:14px 8px;min-height:48px}.setup-page .choice-field>legend{font-size:14px}.setup-page .choice-buttons button{font-size:14px;min-height:44px}.setup-page .setup-bottom{align-items:flex-start;flex-direction:column;gap:12px}.setup-bottom>.small{max-width:none;text-align:left}.setup-page .start-row{flex-direction:column;align-items:stretch;gap:12px}.setup-page .start-row>span{font-size:12px}.setup-page .question-library{margin-top:32px}.setup-page .question-library h2{font-size:18px}.library-topic>summary{gap:10px}.library-topic>summary small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.setup-reveal{transition:none}.library-questions{animation:none}}
+
+/* Keep long content inside the viewport; grid items must stretch into the bounded row. */
+body.in-quiz #app{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+body.in-quiz #app>.top{flex:0 0 auto}
+body.in-quiz .quiz-shell{height:auto;width:100%;flex:1 1 0;overflow:hidden}
+body.in-quiz .question-layout{flex:1 1 0;grid-template-rows:minmax(0,1fr);align-items:stretch;overflow:hidden}
+body.in-quiz .quiz-main{align-self:stretch;overflow:hidden;min-height:0;min-width:0}
+body.in-quiz .question-body{min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;overflow-wrap:break-word}
+body.in-quiz .question-actions{background:var(--bg);min-width:0;position:relative;z-index:1}
+@media(max-width:600px){body.in-quiz .quiz-main{flex:1 1 0}body.in-quiz .question-layout>.aside{max-height:38%;overflow-y:auto;overflow-x:hidden}}
+
+.question-body:focus-visible{outline-offset:-2px}
