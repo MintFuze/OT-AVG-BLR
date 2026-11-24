@@ -1,0 +1,87 @@
+{
+  "imagesReferenced": 634,
+  "uniqueImages": 633,
+  "duplicatesRemoved": [
+    [
+      "d2-036",
+      "d2-035",
+      "identical image"
+    ]
+  ],
+  "ocrNotes": [
+    [
+      "d2-001",
+      "option 2",
+      "OCR empty; original glyphs retained"
+    ],
+    [
+      "d2-015",
+      "option 3",
+      "OCR empty; original glyphs retained"
+    ],
+    [
+      "d2-060",
+      "option 3",
+      "OCR empty; original glyphs retained"
+    ],
+    [
+      "d4-011",
+      "option 3",
+      "OCR empty; original glyphs retained"
+    ],
+    [
+      "d6-044",
+      "option 3",
+      "OCR empty; original glyphs retained"
+    ]
+  ],
+  "missingInSource": [
+    "Doc3.docx: вопрос №10 из 43 в разделе расследования несчастных случаев отсутствует"
+  ],
+  "topics": [
+    {
+      "id": "general",
+      "title": "Общие вопросы по охране труда для руководителей непроизводственных подразделений",
+      "count": 131
+    },
+    {
+      "id": "labor",
+      "title": "Основные положения трудового права для руководителей",
+      "count": 153
+    },
+    {
+      "id": "accidents",
+      "title": "Правила расследования и учета несчастных случаев на производстве",
+      "count": 42
+    },
+    {
+      "id": "electrical",
+      "title": "Электробезопасность",
+      "count": 12
+    },
+    {
+      "id": "fire",
+      "title": "Пожарная безопасность",
+      "count": 88
+    },
+    {
+      "id": "signs",
+      "title": "Цвета сигнальные и знаки безопасности",
+      "count": 27
+    },
+    {
+      "id": "aid",
+      "title": "Оказание первой помощи пострадавшим",
+      "count": 132
+    },
+    {
+      "id": "management",
+      "title": "Системы менеджмента здоровья и безопасности при профессиональной деятельности СТБ ISO 45001-2020",
+      "count": 48
+    }
+  ],
+  "display": "OCR transcription with source-verified fixes; neutralized original image fragments are available at every question.",
+  "incompleteInSource": [
+    "Doc2.docx, вопрос №15: низ четвёртого варианта обрезан; текст не восстановлен по догадке."
+  ]
+}
