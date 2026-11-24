@@ -114,3 +114,5 @@ input[type=checkbox]:checked{border-color:var(--accent);background:var(--accent)
 input[type=checkbox]:checked::after{width:5px;height:9px;background:transparent;border:solid var(--bg);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
 .answer.correct input[type=radio]{border-color:#6ac68c}
 .answer.wrong input[type=radio]{border-color:#ed8594}
+
+.custom-count-field{padding:0 0 20px;max-width:220px}.custom-count-field label{font-size:13px}.custom-count-field .small{font-size:11px;margin-top:6px}
