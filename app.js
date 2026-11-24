@@ -1,7 +1,7 @@
 'use strict';
 const KEY='ot-avgust-v1';
 document.documentElement.dataset.theme='dark';
-const AUTH={email:'access@ot-avgust.local',salt:'ot-avgust-2026',hash:'6fbf79874dbd9654a925fcf21ff550e35af1f4e0638d29d1ff2acfd0c7b1f8ef'};
+const AUTH={salt:'ot-avgust-2026',hash:'3c1fe208e1ff32bc8c147146c3e2d466cd7739ca8f1a7c90a4502cb788114001'};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let bank, state={history:[],active:null,name:''}, screen='setup', active=null, selectedRecord=null, onlyErrors=true, storageOK=true;
@@ -25,8 +25,8 @@ function render(){
  home();
 }
 function login(){++renderTicket;
- $('#app').innerHTML=header()+`<main class="login"><div class="login-form-wrap"><p class="eyebrow">Внутреннее тестирование</p><h1>Вход в ОТ-АВГУСТ</h1><p class="muted">Введите данные доступа вашей группы.</p><form id="login-form"><div class="field"><label for="email">Почта</label><input id="email" name="email" type="email" autocomplete="username" required spellcheck="false"></div><div class="field"><label for="password">Пароль</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><p id="login-error" class="error" role="alert"></p><button class="btn primary full" type="submit">Войти</button></form><p class="footer">Имя участника указывается перед началом теста.</p></div></main>`;
- $('#login-form').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;try{const email=$('#email').value.trim().toLowerCase(),password=$('#password').value;const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(AUTH.salt+':'+password));const hash=Array.from(new Uint8Array(bytes),x=>x.toString(16).padStart(2,'0')).join('');if(email!==AUTH.email||hash!==AUTH.hash){$('#login-error').textContent='Неверная почта или пароль. Проверьте данные входа.';b.disabled=false;return;}session=true;try{sessionStorage.setItem(KEY+'-session','yes');}catch{}render();}catch{$('#login-error').textContent='Не удалось проверить вход. Откройте сайт по HTTPS и попробуйте снова.';b.disabled=false;}};
+ $('#app').innerHTML=header()+`<main class="login"><div class="login-form-wrap"><p class="eyebrow">Внутреннее тестирование</p><h1>Вход в ОТ-АВГУСТ</h1><p class="muted">Введите пароль доступа вашей группы.</p><form id="login-form"><div class="field"><label for="password">Пароль</label><input id="password" name="password" type="password" autocomplete="current-password" required></div><p id="login-error" class="error" role="alert"></p><button class="btn primary full" type="submit">Войти</button></form><p class="footer">Имя участника указывается перед началом теста.</p></div></main>`;
+ $('#login-form').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;try{const password=$('#password').value;const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(AUTH.salt+':'+password));const hash=Array.from(new Uint8Array(bytes),x=>x.toString(16).padStart(2,'0')).join('');if(hash!==AUTH.hash){$('#login-error').textContent='Неверный пароль. Попробуйте ещё раз.';b.disabled=false;return;}session=true;try{sessionStorage.setItem(KEY+'-session','yes');}catch{}render();}catch{$('#login-error').textContent='Не удалось проверить вход. Откройте сайт по HTTPS и попробуйте снова.';b.disabled=false;}};
 }
 function pool(){return bank.questions.filter(q=>q.available!==false&&(setup.topic==='all'||q.topic===setup.topic));}
 
