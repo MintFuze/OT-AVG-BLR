@@ -96,3 +96,13 @@ body.in-quiz .question-actions{background:var(--bg);min-width:0;position:relativ
 @media(max-width:600px){body.in-quiz .quiz-main{flex:1 1 0}body.in-quiz .question-layout>.aside{max-height:38%;overflow-y:auto;overflow-x:hidden}}
 
 .question-body:focus-visible{outline-offset:-2px}
+
+/* State changes stay quick and do not move the reading surface. */
+.question-nav{overscroll-behavior:contain;scrollbar-gutter:stable}
+.question-body,.source-scroll{overscroll-behavior:contain}
+.library-topic[open]>.library-questions{animation:content-enter var(--motion-state) var(--motion-ease)}
+.source-scroll[aria-busy="false"]>.source-img{animation:fade-enter var(--motion-state) ease-out}
+.clock{transition:color var(--motion-fast) ease-out}
+@media(prefers-reduced-motion:reduce){.library-topic[open]>.library-questions,.source-scroll[aria-busy="false"]>.source-img{animation:none}}
+
+body.in-quiz .question-body{contain:layout paint}
