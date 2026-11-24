@@ -32,3 +32,11 @@ Responsive Design Mode 390px: нет переполнения кнопок, дл
 Светлая надпись avgust на тёмном фоне и три цветных знака; подпись ОТ-АВГУСТ. Палитра #40bfe0 / #54be36 / #ffb400 применяется в прогрессе. Логотип — кнопка перезагрузки с сохранением попытки. Индикатор исходного текста появляется до начала запроса.
 
 Оригинальные контуры логотипа взяты из SVG https://avgust.com.by/upload/slam.options/c48/o2sy44nsklxhv8zc9439hu4k0rexfogf/logo-_1_.svg . Удалён отдельный путь нижней подписи, изменён цвет букв под тёмную тему, справа добавлен TEST. Форма букв и цветных знаков сохранена. Favicon — оригинальные PNG 32/48/192 с avgust.com.by. Досрочный выход даёт разбор без истории.
+
+
+## Setup layout revision
+Reference lock: retain the existing user-approved dark square interface and align the setup canvas with the quiz (1600px maximum, 28px side padding). Refero live research returned NO_SUBSCRIPTION; use the supplied screenshot and bundled motion/forms craft guidance.
+- Layout: two open columns for participant/mode and question-count/time, separated by a single rule; topics and question library span the canvas. Mobile uses one column.
+- State: keep the form DOM and focused control when choices change. Show timer minutes beside its selector; hide inactive fields from focus and validation. Exam displays its fixed duration and error limit.
+- Motion: 160–200ms opacity and grid expansion only for dependent settings; buttons update in place. Reduced motion removes transitions.
+- Tokens: preserve SF system font, dark canvas, blue selected controls, no radius, no shadows; existing brand gradient remains progress-only.
