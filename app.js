@@ -48,7 +48,7 @@ function start(ids,name){ids=ids.filter(id=>getQ(id)?.available!==false);if(!ids
 function answerState(id,record=active){if(record.answers[id]===undefined)return 'unanswered';return record.answers[id]===getQ(id).correct?'correct':'wrong';}
 function mistakeCount(record=active){return record.ids.filter(id=>answerState(id,record)==='wrong').length;}
 function unanswered(record=active){return record.ids.filter(id=>record.answers[id]===undefined);}
-function isCompleted(record){return Array.isArray(record.ids)&&record.ids.length>0&&record.ids.every(id=>record.answers?.[id]!==undefined)&&!!record.ended&&record.completed!==false;}
+function isCompleted(record){return Array.isArray(record.ids)&&record.ids.length>0&&record.ids.every(id=>record.answers?.[id]!==undefined)&&!!record.ended&&!record.expired&&record.finishReason!=='mistakes'&&record.completed!==false;}
 function completedHistory(){return state.history.filter(isCompleted);}
 function submitAnswer(id,value){if(!active||active.ids[active.index]!==id||active.answers[id]!==undefined)return false;if(active.deadline&&Date.now()>=active.deadline){finish(true);return false;}const q=getQ(id);if(!Number.isInteger(value)||value<0||value>=q.options.length)return false;active.answers[id]=value;active.needsAnswer=false;save();if(active.mode==='exam'&&mistakeCount()>=4){finish(false,'mistakes');return true;}quiz();return true;}
 function getQ(id){return questionById.get(id);}
