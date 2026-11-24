@@ -62,3 +62,12 @@ input:not([type=radio]):not([type=checkbox]):focus{border-color:var(--accent)}
 @keyframes answer-reveal{from{opacity:.55}to{opacity:1}}
 @keyframes mark-enter{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Avgust reference palette and a reload-safe brand control. */
+.brand{border:0;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;transition:opacity 120ms ease-out,transform 90ms ease-out}
+.brand:hover{opacity:.82}.brand:active{transform:scale(.98)}.brand img{width:190px;height:42px;display:block}
+.progress>span{background:linear-gradient(90deg,#40bfe0 0%,#54be36 55%,#ffb400 100%)}
+.source-loading{display:flex;align-items:center;justify-content:center;gap:10px;min-height:120px;font-size:14px;color:var(--muted)}
+.loading-spinner{width:16px;height:16px;border:2px solid #3c454b;border-top-color:#40bfe0;display:inline-block;animation:source-spin 650ms linear infinite;flex-shrink:0}
+@keyframes source-spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){.brand img{width:132px;height:32px}.top{gap:4px}.nav-item,.nav-item.logout,.nav-item:first-child{font-size:11px;padding:8px 6px}.source-loading{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.loading-spinner{animation:none!important;border-color:#40bfe0 #54be36 #ffb400 #3c454b}}
